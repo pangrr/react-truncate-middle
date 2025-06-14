@@ -19,7 +19,11 @@ function App() {
 
   return (
     <>
-      <div ref={handleContainer}>{truncatedText}</div>
+      /* use "noWrap" to prevent temporary text wrap when container width
+      quickly descreases */
+      <div ref={handleContainer} style={{ textWrap: "noWrap" }}>
+        {truncatedText}
+      </div>
       {truncatedText !== text && <Tooltip>{text}</Tooltip>}
     </>
   )

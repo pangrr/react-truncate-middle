@@ -27,7 +27,7 @@ export default function useTruncateMiddle(text: string) {
         const ellipsisWidth = ctx.measureText(ellipsis).width
         const narrowestCharWidth = ctx.measureText(narrowestChar).width
         const widestCharWidth = ctx.measureText(widestChar).width
-        const containerWidth =
+        const displayableWidth =
           containerElement!.offsetWidth -
           getPixelLengthValue(paddingLeft) -
           getPixelLengthValue(paddingRight) -
@@ -35,12 +35,12 @@ export default function useTruncateMiddle(text: string) {
           getPixelLengthValue(borderRightWidth) -
           safetyMargin
 
-        if (textWidth < containerWidth) {
+        if (textWidth < displayableWidth) {
           setTruncatedText(text)
-        } else if (containerWidth <= ellipsisWidth) {
+        } else if (displayableWidth <= ellipsisWidth) {
           setTruncatedText(ellipsis)
         } else {
-          const delta = textWidth + ellipsisWidth - containerWidth
+          const delta = textWidth + ellipsisWidth - displayableWidth
           const maxCharsToRemove = Math.ceil(delta / narrowestCharWidth)
           const minCharsToRemove = Math.ceil(delta / widestCharWidth)
 
@@ -57,7 +57,7 @@ export default function useTruncateMiddle(text: string) {
             const right = text.substring(middleIndex + nCharsToRemoveFromRight)
             const truncatedText = `${left}${ellipsis}${right}`
             const truncatedTextWidth = ctx.measureText(truncatedText).width
-            if (truncatedTextWidth < containerWidth) {
+            if (truncatedTextWidth < displayableWidth) {
               setTruncatedText(truncatedText)
               return
             }
@@ -75,7 +75,7 @@ const ctx = document.createElement("canvas").getContext("2d")!
 const ellipsis = "..."
 const narrowestChar = " "
 const widestChar = "  "
-const safetyMargin = 4
+const safetyMargin = 2
 
 function getPixelLengthValue(length: string) {
   return Number(length.replace("px", ""))
