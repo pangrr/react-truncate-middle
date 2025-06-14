@@ -11,7 +11,7 @@
 import useTruncateMiddle from "@pangrr/react-truncate-middle"
 import { Tooltip } from "react-tooltip"
 
-export default function App() {
+function App() {
   const text =
     "this is a very looooooooong text this is a very looooooooong text this is a very looooooooong text"
   const { handleContainer, truncatedText } = useTruncateMiddle(text)
