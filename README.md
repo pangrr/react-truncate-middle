@@ -1,10 +1,12 @@
-# React Truncate Middle Inside Your Own Component
+# react hook to truncate text in the middle
+
+I prefer hooks over components because components limit my styling.
 
 ![Screenshot 2025-06-13 at 6 41 05 PM](https://github.com/user-attachments/assets/e28a1be3-984a-430e-8de2-67a1027c3ada)
 
-## [Live Example](https://playcode.io/2422815)
+## [playable example](https://playcode.io/2422815)
 
-## Usage
+## use
 
 `npm install @pangrr/react-truncate-middle`
 
