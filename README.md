@@ -1,4 +1,5 @@
-# React Truncate Middle
+# React Truncate Middle Inside Your Own Component
+
 ![Screenshot 2025-06-13 at 6 41 05 PM](https://github.com/user-attachments/assets/e28a1be3-984a-430e-8de2-67a1027c3ada)
 
 ## [Live Example](https://playcode.io/2422815)
